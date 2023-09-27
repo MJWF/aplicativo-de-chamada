@@ -17,7 +17,6 @@ class MyApp extends StatelessWidget {
             seedColor: const Color.fromARGB(255, 162, 236, 201)),
         useMaterial3: true,
       ),
-      home: const MyHomePage(title: 'Flutter Demo Home Page'),
     );
   }
 }
@@ -39,8 +38,14 @@ class _MyHomePageState extends State<MyHomePage> {
   bool isStudentCheck = false;
   bool isProfessorCheck = false;
 
+  String nomeCadastro = "";
+  String emailCadastro = "";
+  String senhaCadastro = "";
+
+
   @override
   Widget build(BuildContext context) {
+
     screenHeight = MediaQuery.of(context).size.height;
 
     TextStyle titleStyle = TextStyle(fontFamily: 'DancingScript',
@@ -52,6 +57,9 @@ class _MyHomePageState extends State<MyHomePage> {
       return SizedBox(
         width: screenHeight * 0.5,
         child: TextField(
+          onChanged: (text) {
+            nomeCadastro = text;
+          },
           decoration: InputDecoration(
               border: OutlineInputBorder(
                 borderSide: const BorderSide(width: 3),
@@ -66,6 +74,9 @@ class _MyHomePageState extends State<MyHomePage> {
       return SizedBox(
         width: screenHeight * 0.5,
         child: TextField(
+          onChanged: (text) {
+            emailCadastro = text;
+          },
           decoration: InputDecoration(
             border: OutlineInputBorder(
               borderSide: const BorderSide(width: 3),
@@ -81,6 +92,10 @@ class _MyHomePageState extends State<MyHomePage> {
       return SizedBox(
         width: screenHeight * 0.5,
         child: TextField(
+          onChanged: (text) {
+            senhaCadastro = text;
+          },
+          obscureText: true,
           decoration: InputDecoration(
             border: OutlineInputBorder(
               borderSide: const BorderSide(width: 3),
@@ -98,7 +113,9 @@ class _MyHomePageState extends State<MyHomePage> {
         height: screenHeight * 0.1,
         child: ElevatedButton(
           onPressed: () {
-            //rota enviando dados e recarregando pagina
+            print(nomeCadastro);
+            print(emailCadastro);
+            print(senhaCadastro);
           },
           style: ElevatedButton.styleFrom(
             backgroundColor: Colors.greenAccent,
@@ -144,6 +161,7 @@ class _MyHomePageState extends State<MyHomePage> {
     );
 
     return Scaffold(
+      backgroundColor: Colors.white,
       body: SingleChildScrollView(
         child: Padding(
           padding: const EdgeInsets.all(16),
